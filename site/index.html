@@ -83,7 +83,7 @@
 <!-- ===== JS SLIDER ===== -->
 <div class="slider">
   <div class="slides">
-    <div class="slide"><img src="../assets/img/slides/slide1.jpg" alt="Slide 1"><div class="caption">Expression of Non-Classical MHC CD1d</div></div>
+    <div class="slide active"><img src="../assets/img/slides/slide1.jpg" alt="Slide 1"><div class="caption">Expression of Non-Classical MHC CD1d</div></div>
     <div class="slide"><img src="../assets/img/slides/slide2.jpg" alt="Slide 2"><div class="caption">Animal Model for Multiple Sclerosis</div></div>
     <div class="slide"><img src="../assets/img/slides/slide3.jpg" alt="Slide 3"><div class="caption">Non-Clustered Protocadherins</div></div>
     <div class="slide"><img src="../assets/img/slides/slide4.jpg" alt="Slide 4"><div class="caption">Rod Photoreceptor</div></div>
@@ -100,19 +100,19 @@
 </div>
 
 <script>
-let slideIndex = 0;
-showSlides();
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelectorAll(".slide");
+  let slideIndex = 0;
 
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  function showSlides() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+    setTimeout(showSlides, 3000);
   }
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-  slides[slideIndex - 1].style.display = "block";
-  setTimeout(showSlides, 3000); // change every 3 seconds
-}
+
+  showSlides();
+});
 </script>
 
 

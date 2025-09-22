@@ -1,5 +1,5 @@
 .slider {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 30px auto;
   position: relative;
   overflow: hidden;
@@ -10,7 +10,8 @@
 .slides {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 400px;
+  overflow:hidden;
 }
 
 .slide {
